@@ -1,6 +1,3 @@
-import 'package:facerecog/home.dart';
-import 'package:facerecog/loading.dart';
-import 'package:facerecog/uploadscreen.dart';
 import 'package:facerecog/welcome.dart';
 import 'package:flutter/material.dart';
 
