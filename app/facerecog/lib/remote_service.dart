@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 class RemoteService
 {
+  String val="https://i.pinimg.com/originals/eb/f0/af/ebf0af38ebd7f3b41c3642cdb08e1487.jpg";
   ////////////////////// AZURE API ////////////////////////////////////////////////////////
   //TODO: HANDLE EXCEPTION HERE | OK:200
   Future<List<Face>?> getData() async {
@@ -16,12 +17,12 @@ class RemoteService
         },
         body: jsonEncode({
           'url':
-          'https://i.pinimg.com/originals/eb/f0/af/ebf0af38ebd7f3b41c3642cdb08e1487.jpg'
+          '$val'
         }));
 
-    // // print(jsonDecode(response.body));
+    // print(jsonDecode(response.body));
     // List data = jsonDecode(response.body);
-    // // print("THIS IS DATA :");
+    // print("THIS IS DATA :");
     // print(data);
 
     return faceFromJson(response.body);

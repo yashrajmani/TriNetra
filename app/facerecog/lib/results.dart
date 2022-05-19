@@ -1,7 +1,9 @@
+
 import 'package:facerecog/face.dart';
 import 'package:facerecog/remote_service.dart';
 import 'package:facerecog/welcome.dart';
 import 'package:flutter/material.dart';
+
 import 'face.dart';
 
 class Result extends StatefulWidget {
@@ -16,20 +18,25 @@ class _Result extends State<Result> {
   List<Face>? face;
   var isLoaded = false;
 
+
+
   @override
   void initState() {
     super.initState();
     //FETCH DATA FROM API
     getFace();
+
   }
 //TODO: FIX THE NULL ERROR AND WAIT TILL API IS PROCESSED
   getFace() async {
     face = await RemoteService().getData();
+
     if (face != null) {
       setState(() {
         isLoaded = true;
       });
     }
+
   }
 
   @override

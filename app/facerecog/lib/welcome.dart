@@ -1,4 +1,5 @@
 import 'package:facerecog/home.dart';
+import 'package:facerecog/realtime.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {
@@ -61,6 +62,24 @@ class Welcome extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.arrow_forward_sharp,
+                      size: 50,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                    ),
+                    onPressed: () {
+                      print("ARROW CLICKED !");
+
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => RealTime()));
+                    },
+                    child: Icon(
+                      Icons.camera_front,
                       size: 50,
                     ),
                   )

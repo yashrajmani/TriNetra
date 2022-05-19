@@ -1,7 +1,14 @@
+import 'package:camera/camera.dart';
+import 'package:facerecog/home.dart';
+import 'package:facerecog/realtime.dart';
 import 'package:facerecog/welcome.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+List<CameraDescription>? cameras;
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(const Face());
 }
 
@@ -22,7 +29,7 @@ class Face extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const Welcome(),
+      home: const Home(),
     );
   }
 }
