@@ -88,7 +88,7 @@ class _Home extends State<RealTime> {
             Text(
               "CAMERA ON !",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 10,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -107,7 +107,7 @@ class _Home extends State<RealTime> {
             Text(
               output,
               style: TextStyle(
-                fontSize: 35,
+                fontSize: 20,
               ),
             )
           ],
