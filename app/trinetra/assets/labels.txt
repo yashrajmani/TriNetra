@@ -1,6 +1,3 @@
-0 Happy
-1 Sad
-2 Angry
-3 Neutral
-4 Surprised
-5 Disgust
+0 yash is happy
+1 yash is sad
+2 yash is surprised
