@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
 import 'package:vibration/vibration.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'main.dart';
 
@@ -13,6 +14,7 @@ class RealTime extends StatefulWidget {
 }
 
 class _Home extends State<RealTime> {
+  FlutterTts flutterTts = FlutterTts();
   CameraImage? cameraImage;
   CameraController? cameraController;
   String output = '---';
@@ -22,6 +24,14 @@ class _Home extends State<RealTime> {
     super.initState();
     loadCamera();
     loadmodel();
+  }
+
+  Future speak(String word) async {
+    await flutterTts.setLanguage("en-IN");
+    await flutterTts.setSpeechRate(0.8);
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setPitch(1.0);
+    await flutterTts.speak(word);
   }
 
   loadCamera() {
@@ -40,6 +50,9 @@ class _Home extends State<RealTime> {
     });
   }
 
+  bool isVibrate = false;
+  bool isSpeech = false;
+
   runModel() async {
     if (cameraImage != null) {
       var predictions = await Tflite.runModelOnFrame(
@@ -56,41 +69,54 @@ class _Home extends State<RealTime> {
           asynch: true);
 
       predictions?.forEach((element) {
-        setState(() {
+        setState(()  {
           output = element['label'];
-
           // 0 ANGRY
           // 1 SAD
           // 2 HAPPY
           // 3 DISGUST
 
-          if(output=='0 ANGRY')
-            {
-              Vibration.vibrate(pattern: [50, 1000,50, 1000]);
+          if (output == '0 ANGRY') {
+            if (isVibrate == true) {
+              Vibration.vibrate(pattern: [50, 1000, 50, 1000]);
             }
-          else if (output=='1 SAD')
-            {
-              // w v w v
-              Vibration.vibrate(pattern: [300, 1000,300, 1000]);
+            if (isSpeech == true) {
+              speak("ANGRY");
             }
-          else if(output=='2 HAPPY')
-            {
-              Vibration.vibrate(pattern: [50, 50,50, 50]);
-            }
-
-          else if(output=='3 DISGUST')
-          {
-            Vibration.vibrate(pattern: [100, 100,100, 100]);
           }
-          else
-            {
-              Vibration.cancel();
+          else if (output == '1 SAD') {
+            if (isVibrate == true) {
+              Vibration.vibrate(pattern: [300, 1000, 300, 1000]);
             }
+            if (isSpeech == true) {
+              speak("SAD");
+            }
+            // w v w v
+          }
+          else if (output == '2 HAPPY')
+          {
+            if (isVibrate == true) {
+              Vibration.vibrate(pattern: [50, 50, 50, 50]);
+            }
+            if (isSpeech == true) {
+              speak("HAPPY");
+            }
+          }
+          else if (output == '3 DISGUST') {
+            if (isVibrate == true) {
+              Vibration.vibrate(pattern: [100, 100, 100, 100]);
+            }
+            if (isSpeech == true) {
+              speak("DISGUST");
+            }
+          } else {
+            Vibration.cancel();
+            flutterTts.pause();
+          }
         });
       });
     }
   }
-
 
   // TODO: ADD NEW TFLITE MODEL by teachable machines.
 
@@ -116,15 +142,48 @@ class _Home extends State<RealTime> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "CAMERA ON !",
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.vibration),
+                    Switch(
+                      value: isVibrate,
+                      onChanged: (value) {
+                        setState(() {
+                          isVibrate = value;
+                        });
+                      },
+                      activeTrackColor: Colors.blueAccent,
+                      activeColor: Colors.blue,
+                    ),
+                  ],
+                ),
+                const Text(
+                  "CAMERA ON !",
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Row(children: [
+                  Icon(Icons.record_voice_over),
+                  Switch(
+                    value: isSpeech,
+                    onChanged: (value) {
+                      setState(() {
+                        isSpeech = value;
+                      });
+                    },
+                    activeTrackColor: Colors.lightGreenAccent,
+                    activeColor: Colors.green,
+                  ),
+                ])
+              ],
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(8),
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.7,
                 width: MediaQuery.of(context).size.width,
@@ -132,12 +191,13 @@ class _Home extends State<RealTime> {
                     ? Container()
                     : AspectRatio(
                         aspectRatio: cameraController!.value.aspectRatio,
-                        child: CameraPreview(cameraController!),),
+                        child: CameraPreview(cameraController!),
+                      ),
               ),
             ),
             Text(
               output,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
               ),
             )

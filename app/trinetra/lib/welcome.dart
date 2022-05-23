@@ -21,7 +21,7 @@ class Welcome extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image(
+                            const Image(
                               image: AssetImage('assets/cognitive.gif') ,
 
                               fit: BoxFit.contain,
@@ -40,13 +40,13 @@ class Welcome extends StatelessWidget {
                                 print("ARROW CLICKED !");
 
                                 Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context) => Home()));
+                                    MaterialPageRoute(builder: (context) => const Home()));
                               },
 
 
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text(
                                     "UPLOAD"
                                   ),
@@ -61,7 +61,7 @@ class Welcome extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Divider(
+                    const Divider(
 
                     thickness: 2,
                       endIndent: 20,
@@ -75,7 +75,7 @@ class Welcome extends StatelessWidget {
                         width: 200.0,
                         child: Column(
                           children: [
-                            Image(
+                            const Image(
                               image: AssetImage('assets/teachable.png') ,
                               fit: BoxFit.contain,
                             ),
@@ -93,11 +93,11 @@ class Welcome extends StatelessWidget {
                                 print("ARROW CLICKED !");
 
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => RealTime()));
+                                    builder: (context) => const RealTime()));
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text(
                                     "REALTIME "
                                   ),

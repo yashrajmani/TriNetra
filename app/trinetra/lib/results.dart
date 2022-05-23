@@ -3,8 +3,6 @@ import 'package:TriNetra/remote_service.dart';
 import 'package:TriNetra/welcome.dart';
 import 'package:flutter/material.dart';
 
-import 'face.dart';
-
 class Result extends StatefulWidget {
   const Result({Key? key}) : super(key: key);
 
@@ -57,23 +55,23 @@ class _Result extends State<Result> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "RESULTS: ",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
 
 
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
-            Divider(
+            const Divider(
               thickness: 2,
               indent: 20,
               endIndent: 20,
@@ -82,111 +80,263 @@ class _Result extends State<Result> {
             ),
             //-------------------------------------------------------------
             Text(
-              "FACE ID : " + face![0].faceId,
-              style: TextStyle(
+              face![0].faceId,
+              style: const TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 12,
                   fontWeight: FontWeight.w500),
             ),
 
-            Text(
-              "RECTANGLE =  Height: " +
-                  face![0].faceRectangle.height.toString() +
-                  " Width : " +
-                  face![0].faceRectangle.width.toString() +
-                  " Top : " +
-                  face![0].faceRectangle.top.toString() +
-                  " Left : " +
-                  face![0].faceRectangle.left.toString(),
+            const Text(
+              "RECTANGLE =  H W  T L ",
+
               style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 12,
                   fontWeight: FontWeight.w500),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                Text(
+                  face![0].faceRectangle.height.toString(),
+                  style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
+
+                ),
+                Text(
+                  face![0].faceRectangle.width.toString() ,
+                  style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
+
+                ),
+                Text(
+                  face![0].faceRectangle.top.toString() ,
+                  style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
+
+                ),
+                Text(
+                  face![0].faceRectangle.left.toString() ,
+                  style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500),
+
+                ),
+              ],
+            ),
+
 
             //-------------------------------------------------------------
-            Divider(
+            const Divider(
               thickness: 2,
               indent: 20,
               endIndent: 20,
               color: Colors.blueGrey,
               height: 10,
             ),
-            Text(
-              "GENDER : " + face![0].faceAttributes.gender.toString(),
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
+
+            //GENDER
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "GENDER : ",
+                  style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.gender.toString() ,
+                  style: const TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
-            Text(
-              "AGE: " + face![0].faceAttributes.age.toString(),
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
+
+            //AGE
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "AGE: ",
+                  style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                   face![0].faceAttributes.age.toString() ,
+                  style: const TextStyle(
+                      color: Colors.green,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
 
             //--------------------------------------------------------
 
-            Divider(
+            const Divider(
               thickness: 2,
               indent: 20,
               endIndent: 20,
               color: Colors.blueGrey,
               height: 10,
             ),
-            Text(
-              "ANGER : " + face![0].faceAttributes.emotion.anger.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "CONTEMPT : " +
-                  face![0].faceAttributes.emotion.contempt.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "DISGUST : " + face![0].faceAttributes.emotion.disgust.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "FEAR : " + face![0].faceAttributes.emotion.fear.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "HAPPY : " + face![0].faceAttributes.emotion.happiness.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "NEUTRAL : " + face![0].faceAttributes.emotion.neutral.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "SAD : " + face![0].faceAttributes.emotion.sadness.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "SURPRISED : " +
-                  face![0].faceAttributes.emotion.surprise.toString(),
-              style: TextStyle(
-                  color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "ANGER : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                   face![0].faceAttributes.emotion.anger.toString() ,
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
 
-            Divider(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "CONTEMPT: ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.contempt.toString(),
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "DISGUST : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.disgust.toString(),
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "FEAR : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.fear.toString(),
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "HAPPY : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.happiness.toString(),
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "NEUTRAL : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.neutral.toString() ,
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "SAD : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.sadness.toString() ,
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const Text(
+                  "SURPRISED : ",
+                  style: TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  face![0].faceAttributes.emotion.surprise.toString() ,
+                  style: const TextStyle(
+                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+
+            const Divider(
               thickness: 2,
               indent: 20,
               endIndent: 20,
               color: Colors.blueGrey,
               height: 10,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ElevatedButton(
@@ -194,10 +344,10 @@ class _Result extends State<Result> {
                 print("START OVER CLICKED!");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Welcome()),
+                  MaterialPageRoute(builder: (context) => const Welcome()),
                 );
               },
-              child: Text(
+              child: const Text(
                 "START OVER ",
                 style: TextStyle(
                   fontSize: 20,
