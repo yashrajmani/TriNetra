@@ -25,7 +25,6 @@ class _Home extends State<Home> {
       } else {
         print("IMAGE FOUND");
       }
-
       final imagePermanent = await saveImagePermanently(image.path);
       setState(() {
         this.image = imagePermanent;
@@ -50,15 +49,12 @@ class _Home extends State<Home> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
       appBar: AppBar(
-        title: const Text("Face Recognition"),
+        title: const Text("TriNetra"),
         centerTitle: true,
         actions: [
-          Hero(
-              tag: "logo",
-              child: Image.asset(
-                "assets/logo.png",
-                color: Colors.white,
-              )),
+          Image.asset(
+            "assets/logo.png",
+          ),
         ],
       ),
       bottomNavigationBar: Container(
