@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
+import 'package:vibration/vibration.dart';
 
 import 'main.dart';
 
@@ -24,7 +25,7 @@ class _Home extends State<RealTime> {
   }
 
   loadCamera() {
-    cameraController = CameraController(cameras![1], ResolutionPreset.medium);
+    cameraController = CameraController(cameras![0], ResolutionPreset.high);
     cameraController!.initialize().then((value) {
       if (!mounted) {
         return;
@@ -57,6 +58,34 @@ class _Home extends State<RealTime> {
       predictions?.forEach((element) {
         setState(() {
           output = element['label'];
+
+          // 0 ANGRY
+          // 1 SAD
+          // 2 HAPPY
+          // 3 DISGUST
+
+          if(output=='0 ANGRY')
+            {
+              Vibration.vibrate(pattern: [50, 1000,50, 1000]);
+            }
+          else if (output=='1 SAD')
+            {
+              // w v w v
+              Vibration.vibrate(pattern: [300, 1000,300, 1000]);
+            }
+          else if(output=='2 HAPPY')
+            {
+              Vibration.vibrate(pattern: [50, 50,50, 50]);
+            }
+
+          else if(output=='3 DISGUST')
+          {
+            Vibration.vibrate(pattern: [100, 100,100, 100]);
+          }
+          else
+            {
+              Vibration.cancel();
+            }
         });
       });
     }

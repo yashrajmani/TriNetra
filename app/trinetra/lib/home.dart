@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+
   @override
   State<Home> createState() => _Home();
 }
@@ -64,7 +65,7 @@ class _Home extends State<Home> {
           onTap: () {
             print("CONFIRM TAPPED");
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Result()));
+                .push(MaterialPageRoute(builder: (context) => const Result()));
           },
           child: Padding(
             padding: EdgeInsets.only(top: 2.0),
