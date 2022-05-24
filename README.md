@@ -1,9 +1,40 @@
-# TriNetra - AN EYE FOR THE NEEDY!
-## Submission for Microsoft Engage 2022 🌟
+# TriNetra : An eye for the needy! 👁
+## Submission for Microsoft Engage 2022 
 
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Apurva-tech/unite?logo=github&style=for-the-badge)](https://github.com/Apurva-tech/)
-# Microsoft_Engage_PROJECT - FACE RECOGNITION
- this repository contains files for my project submission as a mentee in microsoft engage 2022
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yashrajmani/TriNetra-Microsoft-Engage-22?style=for-the-badge)](https://github.com/yashrajmani/)
+[![LAST COMMIT](https://img.shields.io/github/last-commit/yashrajmani/TriNetra-Microsoft-Engage-22?style=for-the-badge)](https://github.com/yashrajmani/)
+[![Languages](https://img.shields.io/github/languages/count/yashrajmani/TriNetra-Microsoft-Engage-22?style=for-the-badge)](https://github.com/yashrajmani/)
+[![Follow Me on GitHub:](https://img.shields.io/github/followers/yashrajmani?style=for-the-badge)](https://github.com/yashrajmani/)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/yashrajmani/TriNetra-Microsoft-Engage-22?style=for-the-badge)](https://github.com/yashrajmani/)
+
+<img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/logo.png" align="right" height="150" width="150"/>
+
+ 
+## Features and Interfaces:
+
+## Tech stack:
+
+## Tools and Languages: 
+
+## Installation:
+
+## Useful Links:
+
+## Points to remember while testing the app
+1. Allow **permissions** for camera and mic
+2. Wait for the model to analyze, and check for **notifications** 
+
+## REACH ME:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-blue.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashrajmani/) 
+[![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/yashrajmani/)
 
 
-## Follow me on Github: [![Follow Me on GitHub:](https://img.shields.io/github/followers/yashrajmani?style=for-the-badge)](https://github.com/yashrajmani/)
+# Microsoft Engage PROJECT - FACE RECOGNITION
+#### This repository contains files for my project submission as a mentee in microsoft engage 2022
+
+
+
+#
+<p align="center">
+	MADE WITH :heart: &nbsp;BY <a href="https://github.com/yashrajmani/">YASH RAJ MANI</a>
+</p>
