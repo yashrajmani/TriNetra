@@ -28,7 +28,6 @@ class _Result extends State<Result> {
 //TODO: FIX THE NULL ERROR AND WAIT TILL API IS PROCESSED
   getFace() async {
     face = await RemoteService().getData();
-
     if (face != null) {
       setState(() {
         isLoaded = true;

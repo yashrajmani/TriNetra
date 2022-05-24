@@ -46,6 +46,8 @@ dependencies:
   firebase_core: ^1.17.0
   flutterfire_ui: ^0.4.1+1
   vibration: ^1.7.3
+  firebase_storage: ^10.2.16
+
 
 dev_dependencies:
   flutter_test:

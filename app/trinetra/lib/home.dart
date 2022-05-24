@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:TriNetra/remote_service.dart';
 import 'package:TriNetra/results.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,7 +11,6 @@ import 'package:path/path.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
-
   @override
   State<Home> createState() => _Home();
 }
@@ -17,6 +18,7 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   File? image;
+  String imgurl='';
 
   Future pickImage(ImageSource imageSource) async {
     try {
@@ -35,14 +37,31 @@ class _Home extends State<Home> {
     }
   }
 
-  Future<File> saveImagePermanently(String imagePath) async
-  {
+  uploadPic(File image) async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    String url='';
+    Reference ref = storage.ref().child("image" + DateTime.now().toString());
+    UploadTask uploadTask = ref.putFile(image);
+    uploadTask.whenComplete(() async {
+      url = await ref.getDownloadURL();
+      print(url);
+      setState(() {
+        imgurl=url;
+      });
+
+    }).catchError((onError) {
+      print(onError);
+    });
+
+
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);
     final image = File('${directory.path}/$name');
     return File(imagePath).copy(image.path);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +83,10 @@ class _Home extends State<Home> {
         child: InkWell(
           onTap: () {
             print("CONFIRM TAPPED");
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => const Result()));
+            uploadPic(image!);
+
+            // Navigator.of(context)
+            //     .push(MaterialPageRoute(builder: (context) => const Result()));
           },
           child: Padding(
             padding: EdgeInsets.only(top: 2.0),
@@ -96,8 +117,17 @@ class _Home extends State<Home> {
               "CHOOSE:",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 40,
+                fontSize: 20,
                 fontWeight: FontWeight.w200,
+              ),
+            ),
+            Text(
+              "VALUE: "+imgurl,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+
+                fontSize: 10,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -105,14 +135,14 @@ class _Home extends State<Home> {
             ),
             image != null
                 ? Image.file(
-              image!,
-              height: 150,
-              width: 150,
-              fit: BoxFit.cover,
-            )
+                    image!,
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  )
                 : FlutterLogo(
-              size: 150,
-            ),
+                    size: 150,
+                  ),
             SizedBox(
               height: 10,
             ),
@@ -130,7 +160,6 @@ class _Home extends State<Home> {
                 pickImage(ImageSource.camera);
                 print("Camera Pressed!");
               },
-
               child: Icon(
                 Icons.camera,
                 size: 50,

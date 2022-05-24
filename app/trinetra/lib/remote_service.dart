@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:TriNetra/face.dart';
+import 'package:TriNetra/remote_service.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteService
 {
-  String val="https://i.pinimg.com/originals/eb/f0/af/ebf0af38ebd7f3b41c3642cdb08e1487.jpg";
+
   ////////////////////// AZURE API ////////////////////////////////////////////////////////
   //TODO: HANDLE EXCEPTION HERE | OK:200
   Future<List<Face>?> getData() async {
@@ -17,7 +18,7 @@ class RemoteService
         },
         body: jsonEncode({
           'url':
-          '$val'
+          'https://static-ssl.businessinsider.com/image/56a7e43b58c32378008b55c8-734-550/mat_in_tibet-d4784s.jpeg'
         }));
 
     // print(jsonDecode(response.body));
