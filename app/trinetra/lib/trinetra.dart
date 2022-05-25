@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:TriNetra/home.dart';
 import 'package:TriNetra/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Trinetra extends StatefulWidget {
   const Trinetra({Key? key}) : super(key: key);
@@ -17,48 +19,68 @@ class _TrinetraState extends State<Trinetra> {
 
   @override
   Widget build(BuildContext context) {
-    //TODO:ANIMATE THIS
-    Timer(
-        const Duration(seconds: 2),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const Welcome())));
-
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
             body: Center(
-              child: SafeArea(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
-                      Expanded(
-                          child: Container(
-                        width: 250.0,
-                        height: 250.0,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/logo.png'),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      )),
-                      Text(
-                        "TriNetra",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 40,
-                          fontWeight: FontWeight.w400,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
+                    ),
+                    Expanded(
+                        child: Container(
+                      width: 250.0,
+                      height: 250.0,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/animated_logo.gif'),
+                          fit: BoxFit.contain,
                         ),
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
+                    )),
+                    Text(
+                      "TriNetra",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w400,
                       ),
-                    ]),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                child: Welcome(), type: PageTransitionType.fade));
+
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 40,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(100), // <-- Radius
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
+                    )
+                  ]
               ),
-            )));
+            )
+        )
+    );
   }
 }

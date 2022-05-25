@@ -131,11 +131,6 @@ class _Home extends State<RealTime> {
       appBar: AppBar(
         title: const Text("TriNetra"),
         centerTitle: true,
-        actions: [
-          Image.asset(
-            "assets/logo.png",
-          ),
-        ],
       ),
 
       body: Center(

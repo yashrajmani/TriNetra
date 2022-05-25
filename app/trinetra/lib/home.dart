@@ -75,14 +75,9 @@ class _Home extends State<Home> {
       appBar: AppBar(
         title: const Text("TriNetra"),
         centerTitle: true,
-        actions: [
-          Image.asset(
-            "assets/logo.png",
-          ),
-        ],
       ),
 
-      bottomNavigationBar:  SizedBox(
+      bottomNavigationBar: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: 60,
         child: ElevatedButton(
@@ -94,18 +89,16 @@ class _Home extends State<Home> {
               isLoading = true;
             });
 
-            if(image==null)
-              {
-                Fluttertoast.showToast(
-                    msg: "Sorry : NO IMAGE FOUND !",
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.CENTER,
-                    timeInSecForIosWeb: 1,
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 16.0
-                );
-              }
+            if (image == null) {
+              Fluttertoast.showToast(
+                  msg: "Sorry : NO IMAGE FOUND !",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
+            }
 
             await Future.delayed(const Duration(seconds: 6), () {
               if (imgurl != '') {
@@ -116,18 +109,18 @@ class _Home extends State<Home> {
           },
           child: isLoading
               ? Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Uploading...',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(width: 10),
-              CircularProgressIndicator(
-                color: Colors.white,
-              ),
-            ],
-          )
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Uploading...',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(width: 10),
+                    CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  ],
+                )
               : const Text('Confirm'),
         ),
       ),
@@ -144,32 +137,38 @@ class _Home extends State<Home> {
                 fontWeight: FontWeight.w400,
               ),
             ),
+
+            //TODO: HIDE THIS URL FOR FIREBASE
             Text(
-              "VALUE: " + imgurl,
+              "URl: " + imgurl,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 10,
+                fontSize: 8,
                 fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             image != null
                 ? Image.file(
                     image!,
-                    height: 150,
-                    width: 150,
+                    height: 200,
+                    width: 200,
                     fit: BoxFit.cover,
                   )
-                : FlutterLogo(
-                    size: 150,
+                : Container(
+                    width: 200,
+                    height: 200,
+                    child: Image.asset(
+                      "assets/imageicon.png",
+                    ),
                   ),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             Text(
-              "Use Camera",
+              "Use Camera :",
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -191,13 +190,14 @@ class _Home extends State<Home> {
               height: 5,
             ),
             Divider(
-              thickness: 4,
+              color: Colors.deepPurple,
+              thickness: 2,
               height: 20,
               indent: 20,
               endIndent: 20,
             ),
             Text(
-              "Use Gallery",
+              "Use Gallery :",
               style: TextStyle(
                 fontSize: 20,
               ),

@@ -1,6 +1,7 @@
 import 'package:TriNetra/home.dart';
 import 'package:TriNetra/realtime.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -39,8 +40,13 @@ class Welcome extends StatelessWidget {
                               onPressed: () {
                                 print("ARROW CLICKED !");
 
-                                Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context) => const Home()));
+                                Navigator.push(
+                                    context,
+                                    PageTransition(
+                                        child: Home(), type: PageTransitionType.scale,
+                                      alignment: Alignment.bottomCenter
+                                    )
+                                );
                               },
 
 

@@ -22,11 +22,6 @@ class _Result extends State<Result> {
       appBar: AppBar(
         title: const Text("TriNetra"),
         centerTitle: true,
-        actions: [
-          Image.asset(
-            "assets/logo.png",
-          ),
-        ],
       ),
 
       body: Center(
@@ -58,7 +53,7 @@ class _Result extends State<Result> {
             ),
             //-------------------------------------------------------------
             Text(
-              face![0].faceId,
+              "FACE ID: "+ face![0].faceId,
               style: const TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 12,
@@ -66,7 +61,7 @@ class _Result extends State<Result> {
             ),
 
             const Text(
-              "RECTANGLE =  H W  T L ",
+              "RECTANGLE: Height-Width-Top-Left ",
 
               style: TextStyle(
                   color: Colors.blueGrey,
@@ -78,7 +73,7 @@ class _Result extends State<Result> {
 
               children: [
                 Text(
-                  face![0].faceRectangle.height.toString(),
+                  face![0].faceRectangle.height.toString()+"-",
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
@@ -86,7 +81,7 @@ class _Result extends State<Result> {
 
                 ),
                 Text(
-                  face![0].faceRectangle.width.toString() ,
+                  face![0].faceRectangle.width.toString()+"-" ,
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
@@ -94,7 +89,7 @@ class _Result extends State<Result> {
 
                 ),
                 Text(
-                  face![0].faceRectangle.top.toString() ,
+                  face![0].faceRectangle.top.toString()+"-" ,
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
@@ -128,14 +123,14 @@ class _Result extends State<Result> {
 
               children: [
                 const Text(
-                  "GENDER : ",
+                  "Gender : ",
                   style: TextStyle(
                       color: Colors.green,
                       fontSize: 20,
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  face![0].faceAttributes.gender.toString() ,
+                  face![0].faceAttributes.gender.toString().toUpperCase() ,
                   style: const TextStyle(
                       color: Colors.green,
                       fontSize: 20,
@@ -150,7 +145,7 @@ class _Result extends State<Result> {
 
               children: [
                 const Text(
-                  "AGE: ",
+                  "Age : ",
                   style: TextStyle(
                       color: Colors.green,
                       fontSize: 20,

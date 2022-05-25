@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:TriNetra/results.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:lottie/lottie.dart';
 
 class Loading extends StatefulWidget {
   final String url;
@@ -60,11 +61,6 @@ class _Loading extends State<Loading> {
       appBar: AppBar(
         title: const Text("TriNetra"),
         centerTitle: true,
-        actions: [
-          Image.asset(
-            "assets/logo.png",
-          ),
-        ],
       ),
       body: Center(
         child: isLoaded
@@ -83,12 +79,10 @@ class _Loading extends State<Loading> {
                   ),
                 ],
               )
-            : const LoadingIndicator(
-                indicatorType: Indicator.pacman,
-                backgroundColor: Colors.white,
-                ),
+            : const Image(image: AssetImage("assets/load.gif"),) ,
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+// LottieBuilder.network('https://assets8.lottiefiles.com/private_files/lf30_y5tq70sy.json')
