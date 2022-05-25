@@ -18,7 +18,6 @@ class _Loading extends State<Loading> {
   List<Face>? face;
   var isLoaded = false;
 
-
   @override
   void initState() {
     super.initState();
@@ -55,7 +54,6 @@ class _Loading extends State<Loading> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,25 +65,28 @@ class _Loading extends State<Loading> {
             "assets/logo.png",
           ),
         ],
-
       ),
       body: Center(
-          child: isLoaded
-              ?Column(
+        child: isLoaded
+            ? Column(
+          mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Loading Complete"),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Result(face: face)));
+                          MaterialPageRoute(
+                              builder: (context) => Result(face: face)));
                     },
                     child: Text("SEE RESULTS"),
                   ),
                 ],
               )
-
-              :const CircularProgressIndicator(),
+            : const LoadingIndicator(
+                indicatorType: Indicator.pacman,
+                backgroundColor: Colors.white,
+                ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );

@@ -48,6 +48,7 @@ dependencies:
   vibration: ^1.7.3
   firebase_storage: ^10.2.16
   loading_indicator: ^3.1.0
+  fluttertoast: ^8.0.9
 
 
 dev_dependencies:

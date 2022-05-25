@@ -21,6 +21,7 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   File? image;
   String imgurl = '';
+  bool urlload=false;
 
   Future pickImage(ImageSource imageSource) async {
     try {
@@ -49,10 +50,12 @@ class _Home extends State<Home> {
       print(url);
       setState(() {
         imgurl = url;
+        urlload=true;
       });
     }).catchError((onError) {
       print(onError);
     });
+    print(urlload);
   }
 
   Future<File> saveImagePermanently(String imagePath) async {
