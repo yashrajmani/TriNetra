@@ -3,6 +3,7 @@ import 'package:TriNetra/loading.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
@@ -19,9 +20,10 @@ class Home extends StatefulWidget {
 // TODO: use the firebase url for remote service
 
 class _Home extends State<Home> {
+  bool isLoading = false;
   File? image;
   String imgurl = '';
-  bool urlload=false;
+  bool urlload = false;
 
   Future pickImage(ImageSource imageSource) async {
     try {
@@ -50,7 +52,7 @@ class _Home extends State<Home> {
       print(url);
       setState(() {
         imgurl = url;
-        urlload=true;
+        urlload = true;
       });
     }).catchError((onError) {
       print(onError);
@@ -79,39 +81,54 @@ class _Home extends State<Home> {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
+
+      bottomNavigationBar:  SizedBox(
+        width: MediaQuery.of(context).size.width,
         height: 60,
-        color: Colors.black12,
-        child: InkWell(
-          onTap: () async {
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(primary: Colors.black),
+          onPressed: () async {
             print("CONFIRM TAPPED");
             uploadPic(image!);
+            setState(() {
+              isLoading = true;
+            });
 
-            await Future.delayed(const Duration(seconds: 5), () {
+            if(image==null)
+              {
+                Fluttertoast.showToast(
+                    msg: "Sorry : NO IMAGE FOUND !",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
+              }
+
+            await Future.delayed(const Duration(seconds: 6), () {
               if (imgurl != '') {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => Loading(url: imgurl)));
               }
             });
           },
-          child: Padding(
-            padding: EdgeInsets.only(top: 2.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(Icons.check),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Confirm',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          child: isLoading
+              ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Uploading...',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(width: 10),
+              CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ],
+          )
+              : const Text('Confirm'),
         ),
       ),
 
@@ -123,8 +140,8 @@ class _Home extends State<Home> {
               "CHOOSE:",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w200,
+                fontSize: 30,
+                fontWeight: FontWeight.w400,
               ),
             ),
             Text(
