@@ -1,12 +1,14 @@
 import 'dart:io';
-import 'package:TriNetra/remote_service.dart';
-import 'package:TriNetra/results.dart';
+import 'package:TriNetra/loading.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
+import 'dart:convert';
+import 'package:TriNetra/face.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,11 +16,11 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _Home();
 }
-// TODO: use the local image as body(url) for api in remote_service.
+// TODO: use the firebase url for remote service
 
 class _Home extends State<Home> {
   File? image;
-  String imgurl='';
+  String imgurl = '';
 
   Future pickImage(ImageSource imageSource) async {
     try {
@@ -39,21 +41,18 @@ class _Home extends State<Home> {
 
   uploadPic(File image) async {
     FirebaseStorage storage = FirebaseStorage.instance;
-    String url='';
+    String url = '';
     Reference ref = storage.ref().child("image" + DateTime.now().toString());
     UploadTask uploadTask = ref.putFile(image);
     uploadTask.whenComplete(() async {
       url = await ref.getDownloadURL();
       print(url);
       setState(() {
-        imgurl=url;
+        imgurl = url;
       });
-
     }).catchError((onError) {
       print(onError);
     });
-
-
   }
 
   Future<File> saveImagePermanently(String imagePath) async {
@@ -81,12 +80,16 @@ class _Home extends State<Home> {
         height: 60,
         color: Colors.black12,
         child: InkWell(
-          onTap: () {
+          onTap: () async {
             print("CONFIRM TAPPED");
             uploadPic(image!);
 
-            // Navigator.of(context)
-            //     .push(MaterialPageRoute(builder: (context) => const Result()));
+            await Future.delayed(const Duration(seconds: 5), () {
+              if (imgurl != '') {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Loading(url: imgurl)));
+              }
+            });
           },
           child: Padding(
             padding: EdgeInsets.only(top: 2.0),
@@ -122,10 +125,9 @@ class _Home extends State<Home> {
               ),
             ),
             Text(
-              "VALUE: "+imgurl,
+              "VALUE: " + imgurl,
               textAlign: TextAlign.center,
               style: TextStyle(
-
                 fontSize: 10,
                 fontWeight: FontWeight.w500,
               ),

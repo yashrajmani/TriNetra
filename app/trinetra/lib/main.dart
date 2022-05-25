@@ -1,3 +1,4 @@
+import 'package:TriNetra/loading.dart';
 import 'package:TriNetra/trinetra.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';

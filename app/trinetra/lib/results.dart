@@ -1,10 +1,10 @@
 import 'package:TriNetra/face.dart';
-import 'package:TriNetra/remote_service.dart';
 import 'package:TriNetra/welcome.dart';
 import 'package:flutter/material.dart';
 
 class Result extends StatefulWidget {
-  const Result({Key? key}) : super(key: key);
+  List<Face>? face;
+  Result({Key? key,required this.face}) : super(key: key);
 
   @override
   State<Result> createState() => _Result();
@@ -12,29 +12,8 @@ class Result extends StatefulWidget {
 
 //TODO:MAKE THIS PAGE BETTER
 class _Result extends State<Result> {
+  get face => widget.face;
 
-  List<Face>? face;
-  var isLoaded = false;
-
-
-
-  @override
-  void initState() {
-    super.initState();
-    //FETCH DATA FROM API
-    getFace();
-
-  }
-//TODO: FIX THE NULL ERROR AND WAIT TILL API IS PROCESSED
-  getFace() async {
-    face = await RemoteService().getData();
-    if (face != null) {
-      setState(() {
-        isLoaded = true;
-      });
-    }
-
-  }
 
   @override
   Widget build(BuildContext context) {
