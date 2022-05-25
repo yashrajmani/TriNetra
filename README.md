@@ -9,6 +9,7 @@
 
 <img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/logo.png" align="right" height="150" width="150"/>
 
+<a href="./app-release.apk//PUT A LINK HERE FOR APK"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
  
 ## Features and Interfaces:
 
