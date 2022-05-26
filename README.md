@@ -14,14 +14,49 @@
 ## Features and Interfaces:
 
 ## Tech stack:
+- Android Studio
+- Firebase Storage
+- Git & VCS 
+- Cross platform mobile appication- Flutter
+- Google Text to Speech (tts)
 
-## Tools and Languages: 
+## Tools and Languages:
+<p align="left"> <a href=""> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://azure.microsoft.com/en-in/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://restfulapi.net/wp-content/uploads/rest.png" alt="REST API" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://cdn.iconscout.com/icon/free/png-256/flutter-2752187-2285004.png" alt="FLUTTER" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://kreasiteknologidigital.com/wp-content/uploads/2021/02/Yr-pWI4G.jpg" alt="DART" width="40" height="40"/> </a>     
+	
+	
 
+</p>
 
 ## Installation:
 As the app uses vibreation sensors and some null parameters follwing command is needed to run it in flutter: 
 ### flutter run --no-sound-null-safety
-This can also be added in configurations
+This can also be added in configurations.
+
+- Directly download the APK file from here : <LINK>
+	
+- RUN : `git clone https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22.git` 
+	
+#### Android Studio/IntelliJ/VSCODE:
+
+- Open an existing Android Studio project from this downloaded zip after extracting.
+	
+- Choose the app folder , located in this repo. Select Next for all setup instructions, making sure that the Source Files screen shows Flutter as an option.
+	
+- You can view your Flutter app files in the Projects tab in the Project Tool Window (View -> Tool Windows). Make sure your Flutter SDK is set and dependencies have been updated.
+	
+- Make sure your device/emulator is running. You can view the AVD Manager at Tools -> AVD Manager, or by typing Ctrl/Cmd + Shift + a and typing in 'AVD Manager'.
+	
+- Press the green Play button to run the app. Note that main.dart should be chosen in the dropdown on the left of the green Play button.
+	
+#### Command Line:
+
+- Run: `cd <-THIS REPO LOCATION->` 
+
+- Make sure your device/emulator is running.
+
+- Run: `flutter run --no-sound-null-safety` 
+
+	
 
 
 
