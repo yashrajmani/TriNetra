@@ -35,7 +35,6 @@ class Face extends StatelessWidget {
      ),
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => const Trinetra(),
         '/second': (context) => const Welcome(),
       },
@@ -46,14 +45,13 @@ class Face extends StatelessWidget {
 
 
 
-//TODO: USE NAMED ROUTES
 //FLOW :
 //1: trinetra -- 5 sec welcome screen
 //2: welcome -- two options
 
-//3: realtime-- live camera emotion
+//3.2: realtime-- live camera emotion
 
-//4: home -- add an image
+//3.1: home -- add an image
 //5: loading -- busy screen till the API is received.
 //6: results-- response by API
 

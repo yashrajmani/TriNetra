@@ -2,7 +2,6 @@ import 'package:TriNetra/face.dart';
 import 'package:TriNetra/home.dart';
 import 'package:TriNetra/trinetra.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_restart/flutter_restart.dart';
 
 class Result extends StatefulWidget {
   List<Face>? face;
@@ -325,8 +324,9 @@ class _Result extends State<Result> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () async {
-               await FlutterRestart.restartApp();
+              onPressed: ()  {
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                    Trinetra()), (Route<dynamic> route) => false);
               },
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
