@@ -17,11 +17,13 @@
 - Android Studio
 - Firebase Storage
 - Git & VCS 
+- Microsoft Azure
 - Cross platform mobile appication- Flutter
 - Google Text to Speech (tts)
+- TensorFlow Lite (Google Teachable Machines)
 
 ## Tools and Languages:
-<p align="left"> <a href=""> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://azure.microsoft.com/en-in/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://restfulapi.net/wp-content/uploads/rest.png" alt="REST API" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://cdn.iconscout.com/icon/free/png-256/flutter-2752187-2285004.png" alt="FLUTTER" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://kreasiteknologidigital.com/wp-content/uploads/2021/02/Yr-pWI4G.jpg" alt="DART" width="40" height="40"/> </a>     
+<p align="left"> <a href=""> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://azure.microsoft.com/en-in/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://restfulapi.net/wp-content/uploads/rest.png" alt="REST API" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://cdn.iconscout.com/icon/free/png-256/flutter-2752187-2285004.png" alt="FLUTTER" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://kreasiteknologidigital.com/wp-content/uploads/2021/02/Yr-pWI4G.jpg" alt="DART" width="40" height="40"/> </a><a href="" target="_blank"> <img src="https://img.stackshare.io/service/11085/FtFnqC38_400x400.png" alt="DART" width="40" height="40"/> </a>          
 	
 	
 
@@ -69,7 +71,7 @@ This can also be added in configurations.
 1. Allow **permissions** for camera and mic
 2. Wait for the model to analyze faces.
 3. For Upload/Click Image: Make sure to upload image that contains one face,it is also mentioned on the screen. 
-4. For Realtime detection: Use sample models as Teachable Machine needs to be trained separatly.
+4. For Realtime detection: Use sample models as Teachable Machine needs to be trained separately.
 
 ## REACH ME:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-blue.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashrajmani/) 
