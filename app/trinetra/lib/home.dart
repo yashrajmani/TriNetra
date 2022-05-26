@@ -17,7 +17,6 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _Home();
 }
-// TODO: use the firebase url for remote service
 
 class _Home extends State<Home> {
   bool isLoading = false;
@@ -60,6 +59,8 @@ class _Home extends State<Home> {
     print(urlload);
   }
 
+
+  //TODO: SAVE IMAGE TEMPORARILY SAVE STORAGE
   Future<File> saveImagePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);
@@ -78,27 +79,33 @@ class _Home extends State<Home> {
       ),
 
       bottomNavigationBar: SizedBox(
-        width: MediaQuery.of(context).size.width,
+        width: 10,
         height: 60,
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.black),
+          style: ElevatedButton.styleFrom(primary: Colors.black87,
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(0),
+            ),
+          ),
+
           onPressed: () async {
             print("CONFIRM TAPPED");
             uploadPic(image!);
             setState(() {
               isLoading = true;
+              if (image == null) {
+                Fluttertoast.showToast(
+                    msg: "Sorry : NO IMAGE FOUND !",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              }
             });
 
-            if (image == null) {
-              Fluttertoast.showToast(
-                  msg: "Sorry : NO IMAGE FOUND !",
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.CENTER,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: 16.0);
-            }
+
 
             await Future.delayed(const Duration(seconds: 6), () {
               if (imgurl != '') {
@@ -129,49 +136,46 @@ class _Home extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
             Text(
-              "CHOOSE:",
+              "CHOOSE: ",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w400,
+                fontSize: 35,
+                color: Colors.red
               ),
             ),
 
-            //TODO: HIDE THIS URL FOR FIREBASE
-            Text(
-              "URl: " + imgurl,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 8,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
             SizedBox(
-              height: 30,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             image != null
                 ? Image.file(
                     image!,
-                    height: 200,
-                    width: 200,
+                    height: 160,
+                    width: 160,
                     fit: BoxFit.cover,
                   )
                 : Container(
-                    width: 200,
-                    height: 200,
+                    width: 160,
+                    height: 160,
                     child: Image.asset(
                       "assets/imageicon.png",
                     ),
                   ),
             SizedBox(
-              height: 30,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Text(
-              "Use Camera :",
+              "Use Camera",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
+                color: Colors.indigo
               ),
+
             ),
             SizedBox(
               height: 5,
@@ -181,36 +185,51 @@ class _Home extends State<Home> {
                 pickImage(ImageSource.camera);
                 print("Camera Pressed!");
               },
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(200, 50),
+                  maximumSize: const Size(200, 50),
+                  primary: Colors.blue,
+                  onPrimary: Colors.white),
+
               child: Icon(
                 Icons.camera,
                 size: 50,
               ),
+
             ),
             SizedBox(
               height: 5,
             ),
             Divider(
-              color: Colors.deepPurple,
+              color: Colors.red,
               thickness: 2,
               height: 20,
               indent: 20,
               endIndent: 20,
             ),
             Text(
-              "Use Gallery :",
+              "Use Gallery",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
+                  color: Colors.indigo,
               ),
             ),
             SizedBox(
               height: 5,
             ),
             ElevatedButton(
+
               onPressed: () {
                 //TODO: ADD GALLERY OPENER
                 print("Gallery Pressed!");
                 pickImage(ImageSource.gallery);
               },
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(200, 50),
+                maximumSize: const Size(200, 50),
+                primary: Colors.purple,
+                onPrimary: Colors.white),
               child: Icon(
                 Icons.photo_sharp,
                 size: 50,

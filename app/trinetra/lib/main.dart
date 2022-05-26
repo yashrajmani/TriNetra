@@ -1,12 +1,9 @@
 import 'package:TriNetra/loading.dart';
 import 'package:TriNetra/trinetra.dart';
+import 'package:TriNetra/welcome.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-
-//todo : put a vibration sense
-//TODO : ADD SPEAKING SENSE !!!!!!!!!
 
 List<CameraDescription>? cameras;
 
@@ -27,14 +24,21 @@ class Face extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Raleway',
+        fontFamily: 'a Astro Space',
         appBarTheme: const AppBarTheme(
           color: Color(0xFF000316),
           elevation: 3,
         ),
+
         primarySwatch: Colors.blue,
+
      ),
-      home: const Trinetra(),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const Trinetra(),
+        '/second': (context) => const Welcome(),
+      },
     );
   }
 }

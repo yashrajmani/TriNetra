@@ -65,9 +65,29 @@ class _Loading extends State<Loading> {
       body: Center(
         child: isLoaded
             ? Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Loading Complete"),
+                  const Text(
+                    "Thank you for your patience ♥",
+                    style: TextStyle(fontSize: 15, fontFamily: "a Astro Space"),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Image(
+                      image: AssetImage("assets/animated_logo.gif"),
+                      height: 180,
+                      width: 180),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Text(
+                    "LOADING COMPLETE",
+                    style: TextStyle(fontSize: 30, fontFamily: "ITC Bauhaus"),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -76,10 +96,21 @@ class _Loading extends State<Loading> {
                               builder: (context) => Result(face: face)));
                     },
                     child: Text("SEE RESULTS"),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(300, 50),
+                      maximumSize: const Size(300, 50),
+                      primary: Colors.red,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
                   ),
                 ],
               )
-            : const Image(image: AssetImage("assets/load.gif"),) ,
+            : const Image(
+                image: AssetImage("assets/load.gif"),
+              ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );

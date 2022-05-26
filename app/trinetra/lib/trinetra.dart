@@ -6,7 +6,6 @@ import 'package:page_transition/page_transition.dart';
 
 class Trinetra extends StatefulWidget {
   const Trinetra({Key? key}) : super(key: key);
-
   @override
   State<Trinetra> createState() => _TrinetraState();
 }
@@ -46,13 +45,25 @@ class _TrinetraState extends State<Trinetra> {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 40,
-                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(
+                      height:  MediaQuery.of(context).size.height * 0.02,
+                    ),
+                    Text(
+                      "An EYE for the needy",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'ITC Bauhaus',
+                        color: Colors.black,
+                        fontSize: 20,
                       ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                     ),
                     ElevatedButton(
+
                       onPressed: () {
                         Navigator.push(
                             context,
@@ -65,6 +76,7 @@ class _TrinetraState extends State<Trinetra> {
                         child: Icon(
                           Icons.arrow_forward_ios,
                           size: 40,
+                          color: Colors.yellow,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -72,6 +84,7 @@ class _TrinetraState extends State<Trinetra> {
                           borderRadius:
                               BorderRadius.circular(100), // <-- Radius
                         ),
+                          primary:Colors.deepPurple,
                       ),
                     ),
                     SizedBox(

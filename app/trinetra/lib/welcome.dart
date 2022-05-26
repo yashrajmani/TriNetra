@@ -18,7 +18,7 @@ class Welcome extends StatelessWidget {
                     ),
                     Expanded(
                       child: SizedBox(
-                        width: 200.0,
+                        width: MediaQuery.of(context).size.width * 0.5,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -38,7 +38,7 @@ class Welcome extends StatelessWidget {
                               ),
                               ),
                               onPressed: () {
-                                print("ARROW CLICKED !");
+                                print("UPLOAD CLICKED !");
 
                                 Navigator.push(
                                     context,
@@ -69,7 +69,7 @@ class Welcome extends StatelessWidget {
                     ),
                     const Divider(
 
-                    thickness: 2,
+                    thickness: 3,
                       endIndent: 20,
                       indent: 20,
                       color: Colors.blueAccent,
@@ -78,7 +78,7 @@ class Welcome extends StatelessWidget {
 
                     Expanded(
                       child: SizedBox(
-                        width: 200.0,
+                        width: MediaQuery.of(context).size.width * 0.5,
                         child: Column(
                           children: [
                             const Image(
@@ -96,7 +96,7 @@ class Welcome extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                print("ARROW CLICKED !");
+                                print("REALTIME CLICKED !");
 
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => const RealTime()));
@@ -119,7 +119,7 @@ class Welcome extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: MediaQuery.of(context).size.height * 0.04,
                     ),
                   ],
 

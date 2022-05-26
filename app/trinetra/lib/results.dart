@@ -1,6 +1,8 @@
 import 'package:TriNetra/face.dart';
-import 'package:TriNetra/welcome.dart';
+import 'package:TriNetra/home.dart';
+import 'package:TriNetra/trinetra.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 
 class Result extends StatefulWidget {
   List<Face>? face;
@@ -13,7 +15,6 @@ class Result extends StatefulWidget {
 //TODO:MAKE THIS PAGE BETTER
 class _Result extends State<Result> {
   get face => widget.face;
-
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +33,10 @@ class _Result extends State<Result> {
               "RESULTS: ",
               style: TextStyle(
                 fontSize: 30,
-                fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
 
 
@@ -56,18 +56,19 @@ class _Result extends State<Result> {
               "FACE ID: "+ face![0].faceId,
               style: const TextStyle(
                   color: Colors.blueGrey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500),
+                  fontSize: 10,
+              ),
             ),
 
             const Text(
               "RECTANGLE: Height-Width-Top-Left ",
-
               style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 12,
-                  fontWeight: FontWeight.w500),
+              ),
             ),
+
+            // RECTANGLE DATA --------------------------------------
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
 
@@ -77,7 +78,7 @@ class _Result extends State<Result> {
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
-                      fontWeight: FontWeight.w500),
+                  ),
 
                 ),
                 Text(
@@ -85,7 +86,7 @@ class _Result extends State<Result> {
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
-                      fontWeight: FontWeight.w500),
+                      ),
 
                 ),
                 Text(
@@ -93,7 +94,7 @@ class _Result extends State<Result> {
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
-                      fontWeight: FontWeight.w500),
+                      ),
 
                 ),
                 Text(
@@ -101,7 +102,7 @@ class _Result extends State<Result> {
                   style: const TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 12,
-                      fontWeight: FontWeight.w500),
+                      ),
 
                 ),
               ],
@@ -125,19 +126,22 @@ class _Result extends State<Result> {
                 const Text(
                   "Gender : ",
                   style: TextStyle(
+                      fontFamily: 'ITC Bauhaus',
                       color: Colors.green,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontSize: 30,
+                  ),
                 ),
                 Text(
                   face![0].faceAttributes.gender.toString().toUpperCase() ,
                   style: const TextStyle(
-                      color: Colors.green,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontFamily: 'ITC Bauhaus',
+                      color: Colors.indigo,
+                      fontSize: 30,
+                  ),
                 ),
               ],
             ),
+
 
             //AGE
             Row(
@@ -148,15 +152,17 @@ class _Result extends State<Result> {
                   "Age : ",
                   style: TextStyle(
                       color: Colors.green,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontSize: 30,
+                      fontFamily: 'ITC Bauhaus',
+                  ),
                 ),
                 Text(
                    face![0].faceAttributes.age.toString() ,
                   style: const TextStyle(
-                      color: Colors.green,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontFamily: 'ITC Bauhaus',
+                      color: Colors.indigo,
+                      fontSize: 30,
+                  ),
                 ),
               ],
             ),
@@ -170,6 +176,12 @@ class _Result extends State<Result> {
               color: Colors.blueGrey,
               height: 10,
             ),
+            Text("EMOTIONS:",
+            style: TextStyle(
+              fontFamily: "a Astro Space",
+              fontSize: 30,
+              color: Colors.purple
+            ),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
 
@@ -177,12 +189,12 @@ class _Result extends State<Result> {
                 const Text(
                   "ANGER : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20,),
                 ),
                 Text(
                    face![0].faceAttributes.emotion.anger.toString() ,
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20,),
                 ),
               ],
             ),
@@ -194,12 +206,12 @@ class _Result extends State<Result> {
                 const Text(
                   "CONTEMPT: ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.contempt.toString(),
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -210,12 +222,12 @@ class _Result extends State<Result> {
                 const Text(
                   "DISGUST : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.disgust.toString(),
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -225,12 +237,12 @@ class _Result extends State<Result> {
                 const Text(
                   "FEAR : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.fear.toString(),
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -242,12 +254,12 @@ class _Result extends State<Result> {
                 const Text(
                   "HAPPY : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.happiness.toString(),
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -260,12 +272,12 @@ class _Result extends State<Result> {
                 const Text(
                   "NEUTRAL : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.neutral.toString() ,
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -276,12 +288,12 @@ class _Result extends State<Result> {
                 const Text(
                   "SAD : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.sadness.toString() ,
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -292,12 +304,12 @@ class _Result extends State<Result> {
                 const Text(
                   "SURPRISED : ",
                   style: TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.blue, fontSize: 20),
                 ),
                 Text(
                   face![0].faceAttributes.emotion.surprise.toString() ,
                   style: const TextStyle(
-                      color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                      color: Colors.red, fontSize: 20),
                 ),
               ],
             ),
@@ -313,19 +325,27 @@ class _Result extends State<Result> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {
-                print("START OVER CLICKED!");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Welcome()),
-                );
+              onPressed: () async {
+               await FlutterRestart.restartApp();
               },
-              child: const Text(
-                "START OVER ",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                ),
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(200, 50),
+                  maximumSize: const Size(200, 50),
+                  primary: Colors.deepPurple,
+                  onPrimary: Colors.white),
+              child: Row(
+                children: [
+                  Text(
+                    "START OVER ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Icon(
+                    Icons.restart_alt,
+                  )
+                ],
               ),
             ),
           ],
