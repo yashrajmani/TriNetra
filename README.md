@@ -32,7 +32,7 @@
 ## Installation:
 As the app uses vibreation sensors and some null parameters follwing command is needed to run it in flutter: 
 ### flutter run --no-sound-null-safety
-This can also be added in configurations.
+This can also be added in configurations as Additional Run Arguments.
 
 - Directly download the APK file from here : <LINK>
 	
