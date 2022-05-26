@@ -40,13 +40,13 @@ This can also be added in configurations.
 
 - Open an existing Android Studio project from this downloaded zip after extracting.
 	
-- Choose the app folder , located in this repo. Select Next for all setup instructions, making sure that the Source Files screen shows Flutter as an option.
+- Choose the app folder , located in this repo. Select Next for all setup instructions.
 	
-- You can view your Flutter app files in the Projects tab in the Project Tool Window (View -> Tool Windows). Make sure your Flutter SDK is set and dependencies have been updated.
+- Make sure your Flutter SDK is set and dependencies have been updated.
 	
-- Make sure your device/emulator is running. You can view the AVD Manager at Tools -> AVD Manager, or by typing Ctrl/Cmd + Shift + a and typing in 'AVD Manager'.
+- Make sure your device/emulator is running from AVD Manager.
 	
-- Press the green Play button to run the app. Note that main.dart should be chosen in the dropdown on the left of the green Play button.
+- main.dart should be chosen in the dropdown on the left of the green Play button. And then press green play button.
 	
 #### Command Line:
 
