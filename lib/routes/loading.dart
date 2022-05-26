@@ -1,10 +1,8 @@
-import 'package:TriNetra/face.dart';
+import 'package:TriNetra/components/face.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:TriNetra/results.dart';
+import 'package:TriNetra/routes/results.dart';
 import 'package:http/http.dart' as http;
-import 'package:loading_indicator/loading_indicator.dart';
-import 'package:lottie/lottie.dart';
 
 class Loading extends StatefulWidget {
   final String url;
@@ -14,7 +12,6 @@ class Loading extends StatefulWidget {
   State<Loading> createState() => _Loading();
 }
 
-//TODO:MAKE THIS PAGE BETTER
 class _Loading extends State<Loading> {
   List<Face>? face;
   var isLoaded = false;
@@ -74,14 +71,14 @@ class _Loading extends State<Loading> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  Image(
+                  const Image(
                       image: AssetImage("assets/animated_logo.gif"),
                       height: 180,
                       width: 180),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  Text(
+                  const Text(
                     "LOADING COMPLETE",
                     style: TextStyle(fontSize: 30, fontFamily: "ITC Bauhaus"),
                   ),
@@ -95,7 +92,6 @@ class _Loading extends State<Loading> {
                           MaterialPageRoute(
                               builder: (context) => Result(face: face)));
                     },
-                    child: Text("SEE RESULTS"),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(300, 50),
                       maximumSize: const Size(300, 50),
@@ -105,6 +101,7 @@ class _Loading extends State<Loading> {
                         borderRadius: BorderRadius.circular(32.0),
                       ),
                     ),
+                    child: const Text("SEE RESULTS"),
                   ),
                 ],
               )

@@ -4,7 +4,7 @@ import 'package:tflite/tflite.dart';
 import 'package:vibration/vibration.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class RealTime extends StatefulWidget {
   const RealTime({Key? key}) : super(key: key);
@@ -142,7 +142,7 @@ class _Home extends State<RealTime> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.vibration),
+                    const Icon(Icons.vibration),
                     Switch(
                       value: isVibrate,
                       onChanged: (value) {
@@ -157,13 +157,13 @@ class _Home extends State<RealTime> {
                 ),
                 const Text(
                   "CAMERA ON !",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 Row(children: [
-                  Icon(Icons.record_voice_over),
+                  const Icon(Icons.record_voice_over),
                   Switch(
                     value: isSpeech,
                     onChanged: (value) {
@@ -179,7 +179,7 @@ class _Home extends State<RealTime> {
             ),
             Padding(
               padding: const EdgeInsets.all(8),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.7,
                 width: MediaQuery.of(context).size.width,
                 child: !cameraController!.value.isInitialized

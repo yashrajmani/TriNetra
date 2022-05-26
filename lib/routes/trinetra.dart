@@ -1,6 +1,4 @@
-import 'dart:async';
-import 'package:TriNetra/home.dart';
-import 'package:TriNetra/welcome.dart';
+import 'package:TriNetra/routes/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -39,7 +37,7 @@ class _TrinetraState extends State<Trinetra> {
                         ),
                       ),
                     )),
-                    Text(
+                    const Text(
                       "TriNetra",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -50,7 +48,7 @@ class _TrinetraState extends State<Trinetra> {
                     SizedBox(
                       height:  MediaQuery.of(context).size.height * 0.02,
                     ),
-                    Text(
+                    const Text(
                       "An EYE for the needy",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -68,23 +66,23 @@ class _TrinetraState extends State<Trinetra> {
                         Navigator.push(
                             context,
                             PageTransition(
-                                child: Welcome(), type: PageTransitionType.fade));
+                                child: const Welcome(), type: PageTransitionType.fade));
 
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          size: 40,
-                          color: Colors.yellow,
-                        ),
-                      ),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.circular(100), // <-- Radius
                         ),
                           primary:Colors.deepPurple,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 40,
+                          color: Colors.yellow,
+                        ),
                       ),
                     ),
                     SizedBox(

@@ -1,6 +1,5 @@
-import 'package:TriNetra/loading.dart';
-import 'package:TriNetra/trinetra.dart';
-import 'package:TriNetra/welcome.dart';
+import 'package:TriNetra/routes/trinetra.dart';
+import 'package:TriNetra/routes/welcome.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

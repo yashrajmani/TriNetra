@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:TriNetra/loading.dart';
+import 'package:TriNetra/routes/loading.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,9 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import 'dart:convert';
-import 'package:TriNetra/face.dart';
-import 'package:http/http.dart' as http;
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -83,8 +81,8 @@ class _Home extends State<Home> {
         height: 60,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(primary: Colors.black87,
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(0),
+            shape:  RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
             ),
           ),
 
@@ -158,7 +156,7 @@ class _Home extends State<Home> {
                     width: 160,
                     fit: BoxFit.cover,
                   )
-                : Container(
+                : SizedBox(
                     width: 160,
                     height: 160,
                     child: Image.asset(
@@ -168,7 +166,7 @@ class _Home extends State<Home> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
-            Text(
+            const Text(
               "Use Camera",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -177,7 +175,7 @@ class _Home extends State<Home> {
               ),
 
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             ElevatedButton(
@@ -191,23 +189,23 @@ class _Home extends State<Home> {
                   primary: Colors.blue,
                   onPrimary: Colors.white),
 
-              child: Icon(
+              child: const Icon(
                 Icons.camera,
                 size: 50,
               ),
 
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Divider(
+            const Divider(
               color: Colors.red,
               thickness: 2,
               height: 20,
               indent: 20,
               endIndent: 20,
             ),
-            Text(
+            const Text(
               "Use Gallery",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -215,13 +213,12 @@ class _Home extends State<Home> {
                   color: Colors.indigo,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             ElevatedButton(
 
               onPressed: () {
-                //TODO: ADD GALLERY OPENER
                 print("Gallery Pressed!");
                 pickImage(ImageSource.gallery);
               },
@@ -230,7 +227,7 @@ class _Home extends State<Home> {
                 maximumSize: const Size(200, 50),
                 primary: Colors.purple,
                 onPrimary: Colors.white),
-              child: Icon(
+              child: const Icon(
                 Icons.photo_sharp,
                 size: 50,
               ),

@@ -1,6 +1,5 @@
-import 'package:TriNetra/face.dart';
-import 'package:TriNetra/home.dart';
-import 'package:TriNetra/trinetra.dart';
+import 'package:TriNetra/components/face.dart';
+import 'package:TriNetra/routes/trinetra.dart';
 import 'package:flutter/material.dart';
 
 class Result extends StatefulWidget {
@@ -11,7 +10,7 @@ class Result extends StatefulWidget {
   State<Result> createState() => _Result();
 }
 
-//TODO:MAKE THIS PAGE BETTER
+
 class _Result extends State<Result> {
   get face => widget.face;
 
@@ -175,7 +174,7 @@ class _Result extends State<Result> {
               color: Colors.blueGrey,
               height: 10,
             ),
-            Text("EMOTIONS:",
+            const Text("EMOTIONS:",
             style: TextStyle(
               fontFamily: "a Astro Space",
               fontSize: 30,
@@ -326,7 +325,7 @@ class _Result extends State<Result> {
             ElevatedButton(
               onPressed: ()  {
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                    Trinetra()), (Route<dynamic> route) => false);
+                    const Trinetra()), (Route<dynamic> route) => false);
               },
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
@@ -334,7 +333,7 @@ class _Result extends State<Result> {
                   primary: Colors.deepPurple,
                   onPrimary: Colors.white),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     "START OVER ",
                     style: TextStyle(

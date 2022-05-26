@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-//TODO: FIX NULL ERROR for all values.
 
 List<Face> faceFromJson(String str) => List<Face>.from(json.decode(str).map((x) => Face.fromJson(x)));
 

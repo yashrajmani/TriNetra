@@ -1,5 +1,5 @@
-import 'package:TriNetra/home.dart';
-import 'package:TriNetra/realtime.dart';
+import 'package:TriNetra/routes/home.dart';
+import 'package:TriNetra/routes/realtime.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -43,7 +43,7 @@ class Welcome extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     PageTransition(
-                                        child: Home(), type: PageTransitionType.scale,
+                                        child: const Home(), type: PageTransitionType.scale,
                                       alignment: Alignment.bottomCenter
                                     )
                                 );
