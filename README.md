@@ -10,6 +10,7 @@
 <img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/logo.png" align="right" height="150" width="150"/>
 
 <a href="./app-release.apk//PUT A LINK HERE FOR APK"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<a href="https://drive.google.com/file/d/1MyrPTDdv706CZURWz2GG19yNhWkBUTue/view?usp=sharing"><img src="https://www.freeiconspng.com/thumbs/pdf-icon-png/pdf-icon-10.png"  height="60" width="60"></img></a>
  
 ## Features and Interfaces:
 
@@ -66,6 +67,8 @@ This can also be added in configurations as Additional Run Arguments.
 - Teachable Machines by GOOGLE : https://teachablemachine.withgoogle.com/
 
 - AZURE FACE API : https://azure.microsoft.com/en-in/services/cognitive-services/face/
+	
+- Documentation : https://drive.google.com/file/d/1MyrPTDdv706CZURWz2GG19yNhWkBUTue/view?usp=sharing
 
 ## Points to remember while testing the app
 1. Allow **permissions** for camera and mic
