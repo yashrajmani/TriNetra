@@ -72,6 +72,7 @@ This can also be added in configurations as Additional Run Arguments.
 2. Wait for the model to analyze faces.
 3. For Upload/Click Image: Make sure to upload image that contains one face,it is also mentioned on the screen. 
 4. For Realtime detection: Use sample models as Teachable Machine needs to be trained separately.
+5. Internet Connection in device is required
 
 ## REACH ME:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-blue.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashrajmani/) 
