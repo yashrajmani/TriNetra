@@ -18,7 +18,7 @@
 - Firebase Storage
 - Git & VCS 
 - Microsoft Azure
-- Cross platform mobile appication- Flutter
+- Cross platform mobile application- Flutter
 - Google Text to Speech (tts)
 - TensorFlow Lite (Google Teachable Machines)
 
