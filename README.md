@@ -9,9 +9,12 @@
 
 <img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/logo.png" align="right" height="150" width="150"/>
 
-<a href="./app-release.apk//PUT A LINK HERE FOR APK"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<a href="https://drive.google.com/file/d/1v442ARr-YKKOjkFxzSO_cbvp5W57uFQJ/view?usp=sharing"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 <a href="https://drive.google.com/file/d/1MyrPTDdv706CZURWz2GG19yNhWkBUTue/view?usp=sharing"><img src="https://www.freeiconspng.com/thumbs/pdf-icon-png/pdf-icon-10.png"  height="60" width="60"></img></a>
  
+## Access the apk file here or download apk from Gdrive form above link : 
+
+
 ## Features and Interfaces:
 
 ## Tech stack:
@@ -29,6 +32,19 @@
 	
 
 </p>
+
+
+## Features:
+
+<img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/main.jpg" align="center" height="400" width="700"/>
+
+
+<img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/up.jpg" align="center" height="400" width="700"/>
+
+
+
+<img src="https://github.com/yashrajmani/TriNetra-Microsoft-Engage-22/blob/main/extras/rt.jpg" align="center" height="400" width="700"/>
+
 
 ## Installation:
 As the app uses vibreation sensors and some null parameters follwing command is needed to run it in flutter: 
