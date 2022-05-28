@@ -12,7 +12,7 @@
 <a href="https://drive.google.com/file/d/1v442ARr-YKKOjkFxzSO_cbvp5W57uFQJ/view?usp=sharing"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 <a href="https://drive.google.com/file/d/1MyrPTDdv706CZURWz2GG19yNhWkBUTue/view?usp=sharing"><img src="https://www.freeiconspng.com/thumbs/pdf-icon-png/pdf-icon-10.png"  height="60" width="60"></img></a>
  
-## Access the apk file here or download apk from Gdrive form above link : 
+### Download apk from Gdrive by clicking on the above link or here: [APK](https://drive.google.com/file/d/1v442ARr-YKKOjkFxzSO_cbvp5W57uFQJ/view?usp=sharing)
 
 
 ## Features and Interfaces:
