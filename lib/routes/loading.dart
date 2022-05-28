@@ -23,7 +23,6 @@ class _Loading extends State<Loading> {
   }
 
 ////////////////////// AZURE API ////////////////////////////////////////////////////////
-//TODO: HANDLE EXCEPTION HERE | OK:200
   Future<List<Face>?> getData(String url) async {
     http.Response response = await http.post(
         Uri.parse(

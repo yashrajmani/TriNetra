@@ -58,7 +58,6 @@ class _Home extends State<Home> {
   }
 
 
-  //TODO: SAVE IMAGE TEMPORARILY SAVE STORAGE
   Future<File> saveImagePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);

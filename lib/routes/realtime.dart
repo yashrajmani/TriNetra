@@ -118,8 +118,6 @@ class _Home extends State<RealTime> {
     }
   }
 
-  // TODO: ADD NEW TFLITE MODEL by teachable machines.
-
   loadmodel() async {
     await Tflite.loadModel(
         model: "assets/model_unquant.tflite", labels: "assets/labels.txt");
