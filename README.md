@@ -85,6 +85,8 @@ This can also be added in configurations as Additional Run Arguments.
 - AZURE FACE API : https://azure.microsoft.com/en-in/services/cognitive-services/face/
 	
 - Documentation : https://drive.google.com/file/d/1MyrPTDdv706CZURWz2GG19yNhWkBUTue/view?usp=sharing
+	
+- Video Demo : https://drive.google.com/file/d/1rUXeZA-prq127rB3wJsYeHT6Emmw5eFd/view?usp=sharing
 
 ## Points to remember while testing the app
 1. Allow **permissions** for camera and mic
